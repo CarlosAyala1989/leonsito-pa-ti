@@ -1,0 +1,31 @@
+name: Publicar en GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el sitio
+        uses: actions/checkout@v4
+      - name: Preparar Pages
+        uses: actions/configure-pages@v5
+      - name: Empaquetar archivos estáticos
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Publicar
+        uses: actions/deploy-pages@v4

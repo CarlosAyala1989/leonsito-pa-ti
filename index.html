@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#fff8eb">
+    <meta name="description" content="Un rompecabezas divertido para armar un león desde el celular.">
+    <title>Arma tu león · Leonsito pa' ti</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./game.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="page-header">
+        <div class="eyebrow"><span class="eyebrow-sun" aria-hidden="true">✦</span> EL TALLER DE LA SABANA</div>
+        <h1>Arma tu león</h1>
+        <p>Unas piezas se escaparon. ¿Nos ayudas a ponerlas en su lugar?</p>
+      </header>
+      <section class="game-card" aria-labelledby="game-title">
+        <div class="game-topline">
+          <div><p class="mini-label">TU RETO DE HOY</p><h2 id="game-title">¡A completar la figura!</h2></div>
+          <div class="piece-count" aria-live="polite"><span id="piece-count">0/7</span><span>piezas</span></div>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Progreso del rompecabezas" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0"><span id="progress-fill"></span></div>
+        <div class="board-frame">
+          <svg id="puzzle-board" class="puzzle-board" viewBox="0 0 340 370" role="img" aria-label="Tablero para armar el león. Arrastra una pieza hasta el aro que brilla.">
+            <defs>
+              <pattern id="board-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#90b9a0" opacity=".22"></circle></pattern>
+              <g id="art-tail">
+                <path d="M224 259 C251 248 281 252 287 273 C292 293 273 304 257 296 C244 289 251 275 263 277 C269 278 271 284 267 288" fill="none" stroke="#a95e26" stroke-width="13" stroke-linecap="round"></path>
+                <path d="M225 257 C231 249 244 246 252 249 C247 257 239 261 231 264Z" fill="#713d26"></path>
+                <path d="M249 294 C257 300 273 303 282 294" fill="none" stroke="#713d26" stroke-width="4" stroke-linecap="round"></path>
+              </g>
+              <g id="art-body">
+                <path d="M126 183 C107 190 95 211 96 245 C96 283 111 310 143 319 C165 325 193 323 212 311 C236 296 244 270 238 235 C233 203 216 186 193 181Z" fill="#e69a3d"></path>
+                <path d="M137 198 C151 189 182 189 198 200 C207 218 207 245 196 264 C179 276 151 274 134 261 C126 241 127 216 137 198Z" fill="#f2bf6a"></path>
+                <path d="M117 216 C107 236 109 261 122 277" fill="none" stroke="#c5782e" stroke-width="7" stroke-linecap="round"></path>
+                <path d="M218 215 C228 235 226 259 213 276" fill="none" stroke="#c5782e" stroke-width="7" stroke-linecap="round"></path>
+                <path d="M148 232 C161 239 178 239 190 232" fill="none" stroke="#dd9b42" stroke-width="5" stroke-linecap="round"></path>
+              </g>
+              <g id="art-paws">
+                <path d="M112 296 C116 282 131 279 145 285 C156 290 160 303 154 315 C149 325 133 328 120 323 C111 319 108 307 112 296Z" fill="#f1b457" stroke="#bc742f" stroke-width="3"></path>
+                <path d="M178 288 C191 280 207 284 215 295 C222 305 218 319 208 324 C195 329 179 324 174 313 C170 304 171 294 178 288Z" fill="#f1b457" stroke="#bc742f" stroke-width="3"></path>
+                <path d="M126 307 l3 5 M139 308 l2 5 M190 307 l-1 5 M203 306 l-2 5" fill="none" stroke="#fff2d4" stroke-width="3" stroke-linecap="round"></path>
+              </g>
+              <g id="art-ears">
+                <path d="M116 76 C103 69 103 49 111 39 C122 40 135 51 139 67Z" fill="#b66a2c"></path>
+                <path d="M201 67 C205 51 218 40 229 39 C237 49 237 69 224 76Z" fill="#b66a2c"></path>
+                <path d="M117 63 C113 55 115 49 118 47 C125 50 130 57 132 65Z" fill="#eab77b"></path>
+                <path d="M208 65 C210 57 215 50 222 47 C225 49 227 55 223 63Z" fill="#eab77b"></path>
+              </g>
+              <g id="art-mane">
+                <path d="M168 27 C181 27 187 39 198 42 C210 39 221 47 221 59 C233 66 236 79 228 90 C237 102 234 115 223 123 C227 137 218 148 205 150 C197 162 184 163 173 157 C161 166 148 160 142 150 C128 151 120 141 123 128 C110 120 106 107 114 96 C105 84 109 72 119 64 C118 51 128 43 142 45 C149 33 159 27 168 27Z" fill="#c9712b" stroke="#9d5228" stroke-width="4" stroke-linejoin="round"></path>
+                <path d="M140 48 C146 53 149 58 149 64 M194 45 C190 52 188 57 188 63 M222 79 C214 81 210 85 207 91 M223 119 C215 117 210 118 204 122 M194 151 C192 144 188 140 182 137 M141 149 C146 143 148 138 148 132 M115 98 C123 98 128 101 132 106 M122 65 C131 66 136 70 140 76" fill="none" stroke="#e39142" stroke-width="5" stroke-linecap="round" opacity=".85"></path>
+                <path d="M166 35 C170 43 171 48 170 53" fill="none" stroke="#f0aa57" stroke-width="4" stroke-linecap="round"></path>
+              </g>
+              <g id="art-face">
+                <path d="M169 50 C197 50 216 73 215 106 C215 137 197 157 170 160 C142 158 124 138 124 106 C122 74 141 51 169 50Z" fill="#f4c96e" stroke="#cb8a3a" stroke-width="3"></path>
+                <path d="M143 94 C150 87 159 87 165 92" fill="none" stroke="#754626" stroke-width="4" stroke-linecap="round"></path>
+                <path d="M176 92 C182 87 192 87 197 94" fill="none" stroke="#754626" stroke-width="4" stroke-linecap="round"></path>
+                <ellipse cx="155" cy="103" rx="4.5" ry="6" fill="#3e3029"></ellipse><ellipse cx="185" cy="103" rx="4.5" ry="6" fill="#3e3029"></ellipse>
+                <circle cx="156" cy="101" r="1.5" fill="#fff"></circle><circle cx="186" cy="101" r="1.5" fill="#fff"></circle>
+                <path d="M169 61 C164 67 162 72 164 77 M174 61 C179 67 181 72 178 77" fill="none" stroke="#e5aa53" stroke-width="3" stroke-linecap="round"></path>
+              </g>
+              <g id="art-muzzle">
+                <path d="M139 131 C144 120 157 119 168 128 C179 118 192 120 198 132 C204 146 190 158 170 159 C150 159 134 147 139 131Z" fill="#fff0d6" stroke="#d6a45e" stroke-width="2.5"></path>
+                <path d="M162 128 C165 124 175 124 178 128 L174 135 C171 138 168 138 165 135Z" fill="#633d32"></path>
+                <path d="M170 137 C170 145 165 147 160 147 M170 137 C170 145 176 147 181 147" fill="none" stroke="#633d32" stroke-width="2.5" stroke-linecap="round"></path>
+                <path d="M140 135 L124 131 M141 142 L124 144 M198 135 L214 131 M197 142 L214 144" fill="none" stroke="#a46d45" stroke-width="2" stroke-linecap="round"></path>
+                <circle cx="153" cy="138" r="2" fill="#d99077" opacity=".8"></circle><circle cx="187" cy="138" r="2" fill="#d99077" opacity=".8"></circle>
+              </g>
+            </defs>
+            <rect x="0" y="0" width="340" height="370" rx="26" fill="#e9f5e8"></rect>
+            <rect x="0" y="0" width="340" height="370" rx="26" fill="url(#board-dots)"></rect>
+            <circle cx="49" cy="75" r="19" fill="#fff9ed" opacity=".72"></circle><circle cx="284" cy="111" r="13" fill="#fff9ed" opacity=".72"></circle>
+            <path d="M30 329 C74 319 104 327 132 334 M230 336 C260 324 294 324 319 332" fill="none" stroke="#b5d5b6" stroke-width="3" stroke-linecap="round"></path>
+            <ellipse cx="170" cy="334" rx="78" ry="13" fill="#8cb694" opacity=".2"></ellipse>
+            <g class="ghost-layer" aria-hidden="true">
+              <use href="#art-tail"></use><use href="#art-body"></use><use href="#art-paws"></use><use href="#art-ears"></use><use href="#art-mane"></use><use href="#art-face"></use><use href="#art-muzzle"></use>
+            </g>
+            <g class="assembled-lion" aria-hidden="true">
+              <use href="#art-tail" class="placed-piece" data-piece="tail"></use><use href="#art-body" class="placed-piece" data-piece="body"></use>
+              <use href="#art-paws" class="placed-piece" data-piece="paws"></use><use href="#art-ears" class="placed-piece" data-piece="ears"></use>
+              <use href="#art-mane" class="placed-piece" data-piece="mane"></use><use href="#art-face" class="placed-piece" data-piece="face"></use>
+              <use href="#art-muzzle" class="placed-piece" data-piece="muzzle"></use>
+            </g>
+            <g id="target-markers" aria-hidden="true"></g>
+            <path d="M36 104 C42 100 48 100 54 104 M283 189 C289 185 295 185 301 189" fill="none" stroke="#8eb697" stroke-width="3" stroke-linecap="round" opacity=".6"></path>
+            <path d="M40 102 l-3 -5 M47 101 l1 -6 M287 187 l-2 -5 M294 187 l2 -5" fill="none" stroke="#8eb697" stroke-width="2" stroke-linecap="round" opacity=".6"></path>
+          </svg>
+          <div class="board-caption"><span class="caption-star" aria-hidden="true">✦</span><span id="board-hint">Toca una pieza y busca su aro brillante</span></div>
+        </div>
+        <div class="pieces-heading">
+          <div><p class="mini-label">PIEZAS SUELTAS</p><h2>¿Dónde va cada una?</h2></div>
+          <button id="restart-button" class="restart-button" type="button" aria-label="Empezar de nuevo"><span aria-hidden="true">↻</span> Reiniciar</button>
+        </div>
+        <div id="pieces-grid" class="pieces-grid" aria-label="Piezas disponibles"></div>
+        <p class="interaction-hint"><span aria-hidden="true">☝</span> Toca una pieza o arrástrala hasta su lugar.</p>
+        <div id="game-status" class="sr-only" role="status" aria-live="polite"></div>
+        <section id="victory-panel" class="victory-panel" aria-live="polite" hidden>
+          <div class="victory-confetti" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span></div>
+          <p class="victory-kicker">¡LO LOGRASTE!</p><h2>Ahi ta tu leon</h2>
+          <p>¡Qué bien quedó! ¿Armamos otro?</p>
+          <button id="play-again-button" class="play-again-button" type="button">Jugar otra vez <span aria-hidden="true">↻</span></button>
+        </section>
+      </section>
+      <footer class="page-footer">Hecho para jugar con calma <span aria-hidden="true">☀</span></footer>
+    </main>
+    <div id="drag-preview" class="drag-preview" hidden aria-hidden="true"></div>
+  </body>
+</html>
