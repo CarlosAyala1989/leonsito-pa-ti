@@ -18,13 +18,15 @@ concurrency:
 jobs:
   publicar:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
     steps:
       - name: Descargar el sitio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Preparar Pages
         uses: actions/configure-pages@v5
       - name: Empaquetar archivos estáticos
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .
       - name: Publicar
