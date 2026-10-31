@@ -1,11 +1,7 @@
 const pieces = [
-  { id: "mane", name: "La melena", symbol: "✹", icon: "is-rose", target: { x: 103, y: 88 } },
-  { id: "face", name: "La carita", symbol: "☺", icon: "", target: { x: 229, y: 104 } },
-  { id: "muzzle", name: "El hocico", symbol: "♥", icon: "is-rose", target: { x: 170, y: 168 } },
-  { id: "ears", name: "Las orejas", symbol: "⌒", icon: "is-brown", target: { x: 170, y: 39 } },
+  { id: "cabeza", name: "La cabeza", symbol: "🦁", icon: "is-rose", target: { x: 170, y: 96 } },
   { id: "body", name: "El cuerpo", symbol: "◉", icon: "", target: { x: 171, y: 240 } },
-  { id: "paws", name: "Las patitas", symbol: "🐾", icon: "is-green", target: { x: 170, y: 330 } },
-  { id: "tail", name: "La colita", symbol: "〰", icon: "is-brown", target: { x: 281, y: 278 } }
+  { id: "patas-cola", name: "Patas y cola", symbol: "🐾", icon: "is-green", target: { x: 281, y: 278 } }
 ];
 const board = document.getElementById("puzzle-board");
 const grid = document.getElementById("pieces-grid");
@@ -105,8 +101,7 @@ function placePiece(id) {
   if (placed.has(id)) return;
   placed.add(id);
   selected = null;
-  const art = document.querySelector('.placed-piece[data-piece="' + id + '"]');
-  if (art) art.classList.add("is-visible");
+  document.querySelectorAll('.placed-piece[data-piece="' + id + '"]').forEach((art) => art.classList.add("is-visible"));
   renderTray();
   renderMarkers();
   updateProgress();

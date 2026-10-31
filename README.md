@@ -1,6 +1,6 @@
 # leonsito-pa-ti
 
-Un rompecabezas interactivo y adaptable a celular: arma el león tocando o arrastrando sus siete piezas.
+Un rompecabezas interactivo y adaptable a celular: arma el león tocando o arrastrando tres piezas, la cabeza, el cuerpo y las patas con la cola.
 
 ## Publicar en GitHub Pages
 

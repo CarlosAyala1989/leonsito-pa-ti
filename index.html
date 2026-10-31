@@ -19,9 +19,9 @@
       <section class="game-card" aria-labelledby="game-title">
         <div class="game-topline">
           <div><p class="mini-label">TU RETO DE HOY</p><h2 id="game-title">¡A completar la figura!</h2></div>
-          <div class="piece-count" aria-live="polite"><span id="piece-count">0/7</span><span>piezas</span></div>
+          <div class="piece-count" aria-live="polite"><span id="piece-count">0/3</span><span>piezas</span></div>
         </div>
-        <div class="progress-track" role="progressbar" aria-label="Progreso del rompecabezas" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0"><span id="progress-fill"></span></div>
+        <div class="progress-track" role="progressbar" aria-label="Progreso del rompecabezas" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><span id="progress-fill"></span></div>
         <div class="board-frame">
           <svg id="puzzle-board" class="puzzle-board" viewBox="0 0 340 370" role="img" aria-label="Tablero para armar el león. Arrastra una pieza hasta el aro que brilla.">
             <defs>
@@ -79,10 +79,10 @@
               <use href="#art-tail"></use><use href="#art-body"></use><use href="#art-paws"></use><use href="#art-ears"></use><use href="#art-mane"></use><use href="#art-face"></use><use href="#art-muzzle"></use>
             </g>
             <g class="assembled-lion" aria-hidden="true">
-              <use href="#art-tail" class="placed-piece" data-piece="tail"></use><use href="#art-body" class="placed-piece" data-piece="body"></use>
-              <use href="#art-paws" class="placed-piece" data-piece="paws"></use><use href="#art-ears" class="placed-piece" data-piece="ears"></use>
-              <use href="#art-mane" class="placed-piece" data-piece="mane"></use><use href="#art-face" class="placed-piece" data-piece="face"></use>
-              <use href="#art-muzzle" class="placed-piece" data-piece="muzzle"></use>
+              <use href="#art-tail" class="placed-piece" data-piece="patas-cola"></use><use href="#art-body" class="placed-piece" data-piece="body"></use>
+              <use href="#art-paws" class="placed-piece" data-piece="patas-cola"></use><use href="#art-ears" class="placed-piece" data-piece="cabeza"></use>
+              <use href="#art-mane" class="placed-piece" data-piece="cabeza"></use><use href="#art-face" class="placed-piece" data-piece="cabeza"></use>
+              <use href="#art-muzzle" class="placed-piece" data-piece="cabeza"></use>
             </g>
             <g id="target-markers" aria-hidden="true"></g>
             <path d="M36 104 C42 100 48 100 54 104 M283 189 C289 185 295 185 301 189" fill="none" stroke="#8eb697" stroke-width="3" stroke-linecap="round" opacity=".6"></path>
